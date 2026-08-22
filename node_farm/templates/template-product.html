@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{%PRODUCTNAME%} | Node Farm</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <main class="contenedor">
+        <article class="tarjeta">
+            <span class="tarjeta__etiqueta {%NOT_ORGANIC%}">Organico</span>
+
+            <div class="tarjeta__imagen">
+                <img src="{%IMAGE%}" alt="{%PRODUCTNAME%}">
+            </div>
+
+            <h1 class="tarjeta__nombre">{%PRODUCTNAME%}</h1>
+
+            <ul class="tarjeta__datos">
+                <li class="tarjeta__dato">
+                    <span class="tarjeta__etiqueta-dato">Pais de origen</span>
+                    <span class="tarjeta__valor">{%FROM%}</span>
+                </li>
+                <li class="tarjeta__dato">
+                    <span class="tarjeta__etiqueta-dato">Cantidad disponible</span>
+                    <span class="tarjeta__valor">{%QUANTITY%}</span>
+                </li>
+            </ul>
+
+            <div class="tarjeta__precio">
+                <span class="tarjeta__precio-texto">Precio</span>
+                <span class="tarjeta__precio-valor">${%PRICE%}</span>
+            </div>
+        </article>
+    </main>
+
+</body>
+</html>

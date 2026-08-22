@@ -1,0 +1,9 @@
+{
+    "id":0,
+    "productName": "Aguacate",
+    "from": "Mexico",
+    "quantity": 4,
+    "price": 6.50,
+    "organic": true,
+    "description": "lorem"
+}

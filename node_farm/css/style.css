@@ -1,0 +1,270 @@
+:root {
+    --color-fondo: #f4f6f4;
+    --color-tarjeta: #ffffff;
+    --color-texto: #2b3a2b;
+    --color-suave: #7b8a7b;
+    --color-acento: #4caf50;
+    --borde: #e4e9e4;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+}
+
+/* Centrado de la tarjeta */
+.contenedor {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.tarjeta {
+    position: relative;
+    width: 100%;
+    max-width: 22rem;
+    background-color: var(--color-tarjeta);
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 1rem 2rem rgba(0, 0, 0, .12);
+}
+
+/* Etiqueta circular "Organico" en el borde superior derecho */
+.tarjeta__etiqueta {
+    position: absolute;
+    top: .75rem;
+    right: .75rem;
+    z-index: 2;
+    width: 4.25rem;
+    height: 4.25rem;
+    border-radius: 50%;
+    background-color: var(--color-acento);
+    color: #fff;
+    font-size: .75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 .25rem .5rem rgba(0, 0, 0, .2);
+}
+
+/* Se aplica cuando organic es false */
+.tarjeta__etiqueta.oculto {
+    display: none;
+}
+
+/* Imagen */
+.tarjeta__imagen {
+    width: 100%;
+    height: 14rem;
+    background-color: #eef1ee;
+}
+
+.tarjeta__imagen img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Nombre centrado, en su propia seccion */
+.tarjeta__nombre {
+    text-align: center;
+    font-size: 1.5rem;
+    padding: 1.25rem 1rem;
+    border-bottom: 1px solid var(--borde);
+}
+
+/* Datos del producto */
+.tarjeta__datos {
+    list-style: none;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--borde);
+}
+
+.tarjeta__dato {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 0;
+}
+
+.tarjeta__etiqueta-dato {
+    color: var(--color-suave);
+    font-size: .9rem;
+}
+
+.tarjeta__valor {
+    font-weight: 600;
+}
+
+/* Precio centrado */
+.tarjeta__precio {
+    text-align: center;
+    padding: 1.25rem 1rem 1.75rem;
+}
+
+.tarjeta__precio-texto {
+    display: block;
+    color: var(--color-suave);
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    font-size: .8rem;
+    margin-bottom: .35rem;
+}
+
+.tarjeta__precio-valor {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-acento);
+}
+
+/* ---------------------------------------------------------
+   Tarjeta horizontal (template-card.html) para el overview
+   --------------------------------------------------------- */
+
+/* Lista de tarjetas centrada en la pagina */
+.tarjetas {
+    width: 100%;
+    max-width: 60rem;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+/* Todos los datos en una sola linea */
+.tarjeta--linea {
+    max-width: 60rem;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding-right: 1.5rem;
+}
+
+.tarjeta--linea .tarjeta__imagen--linea {
+    flex: 0 0 8rem;
+    width: 8rem;
+    height: 6rem;
+}
+
+.tarjeta--linea .tarjeta__nombre--linea {
+    flex: 1 1 0;
+    text-align: left;
+    font-size: 1.25rem;
+    padding: 0;
+    border-bottom: none;
+}
+
+/* Cada dato ocupa un ancho fijo para que todas las tarjetas
+   midan lo mismo, sea organico o no */
+.tarjeta--linea .tarjeta__celda {
+    flex: 0 0 8rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .15rem;
+    text-align: center;
+}
+
+/* La etiqueta "Organico" deja de ser circular y flotante:
+   vive dentro de la linea sin alterar el largo de la tarjeta */
+.tarjeta--linea .tarjeta__etiqueta--linea {
+    position: static;
+    width: auto;
+    height: auto;
+    border-radius: 999px;
+    padding: .35rem .9rem;
+    font-size: .7rem;
+    box-shadow: none;
+}
+
+/* Si no es organico se conserva el espacio (no display: none)
+   para que la tarjeta mantenga el mismo largo */
+.tarjeta--linea .tarjeta__etiqueta--linea.oculto {
+    display: flex;
+    visibility: hidden;
+}
+
+.tarjeta--linea .tarjeta__precio-valor--linea {
+    font-size: 1.35rem;
+}
+
+.tarjeta__boton {
+    flex: 0 0 auto;
+    display: inline-block;
+    padding: .65rem 1.25rem;
+    border-radius: 999px;
+    background-color: var(--color-acento);
+    color: #fff;
+    text-decoration: none;
+    font-size: .85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .05em;
+    white-space: nowrap;
+}
+
+.tarjeta__boton:hover {
+    filter: brightness(.92);
+}
+
+/* ---------------------------------------------------------
+   Overview: cabecera, contenido y pie de pagina
+   --------------------------------------------------------- */
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecera {
+    background-color: var(--color-acento);
+    color: #fff;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.cabecera__titulo {
+    font-size: 2rem;
+    letter-spacing: .05em;
+}
+
+.cabecera__subtitulo {
+    margin-top: .35rem;
+    font-size: .95rem;
+    opacity: .9;
+}
+
+/* Ocupa el espacio restante y centra el bloque de tarjetas */
+.contenido {
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    padding: 2rem 1rem;
+}
+
+.pie {
+    background-color: var(--color-texto);
+    color: #fff;
+    text-align: center;
+    padding: 1.25rem 1rem;
+}
+
+.pie__texto {
+    font-size: .85rem;
+    opacity: .85;
+}

@@ -1,0 +1,23 @@
+<article class="tarjeta tarjeta--linea">
+    <div class="tarjeta__imagen tarjeta__imagen--linea">
+        <img src="{%IMAGE%}" alt="{%PRODUCTNAME%}">
+    </div>
+
+    <h2 class="tarjeta__nombre tarjeta__nombre--linea">{%PRODUCTNAME%}</h2>
+
+    <div class="tarjeta__celda tarjeta__celda--organico">
+        <span class="tarjeta__etiqueta tarjeta__etiqueta--linea {%NOT_ORGANIC%}">Organico</span>
+    </div>
+
+    <div class="tarjeta__celda">
+        <span class="tarjeta__etiqueta-dato">Cantidad</span>
+        <span class="tarjeta__valor">{%QUANTITY%}</span>
+    </div>
+
+    <div class="tarjeta__celda">
+        <span class="tarjeta__etiqueta-dato">Precio</span>
+        <span class="tarjeta__precio-valor tarjeta__precio-valor--linea">${%PRICE%}</span>
+    </div>
+
+    <a class="tarjeta__boton" href="/product?id={%ID%}">Ver detalle</a>
+</article>
